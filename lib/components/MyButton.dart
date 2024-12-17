@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_like/MyColors.dart';
 
 class MyButton extends StatelessWidget {
   String label;
@@ -6,12 +7,12 @@ class MyButton extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: MyColors.secondaryColor,
       child: TextButton(
         onPressed: () {},
         child: Text(
           label,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: MyColors.textcolor),
         ),
       ),
     );

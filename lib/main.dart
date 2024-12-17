@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_like/MyColors.dart';
 import 'package:twitter_like/components/CustomTweet.dart';
 import 'package:twitter_like/components/MyButton.dart';
 
@@ -15,7 +16,7 @@ class HomePage extends StatelessWidget {
             "Twitter-Like",
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: const Color.fromARGB(255, 73, 47, 145),
+          backgroundColor: MyColors.primaryColor,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -38,6 +39,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 223, 212, 255),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications_sharp),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_like/MyColors.dart';
 
 class CustomTweet extends StatefulWidget {
   const CustomTweet({super.key});
@@ -81,8 +82,8 @@ class _CustomTweetState extends State<CustomTweet> {
                       borderRadius: BorderRadius.circular(50),
                       gradient: LinearGradient(
                         colors: [
-                          const Color.fromARGB(255, 126, 102, 150),
-                          const Color.fromARGB(255, 56, 37, 102)
+                          MyColors.primaryColor,
+                          MyColors.secondaryColor
                         ],
                       ),
                     ),
