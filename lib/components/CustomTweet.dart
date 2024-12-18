@@ -46,7 +46,7 @@ class _CustomTweetState extends State<CustomTweet> {
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               width: 250,
               height: 150,
               child: Image.asset(
@@ -75,24 +75,14 @@ class _CustomTweetState extends State<CustomTweet> {
                         print('Ajouté aux favoris');
                       },
                     ),
+                    IconButton(
+                      icon: Icon(Icons.comment),
+                      onPressed: () {
+                        print('Ajouté aux favoris');
+                      },
+                    ),
                   ],
                 ),
-                Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      gradient: LinearGradient(
-                        colors: [
-                          MyColors.primaryColor,
-                          MyColors.secondaryColor
-                        ],
-                      ),
-                    ),
-                    child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Comment',
-                          style: TextStyle(color: Colors.white),
-                        )))
               ],
             ),
           ],

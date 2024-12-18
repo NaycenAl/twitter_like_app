@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter_like/MyColors.dart';
 import 'package:twitter_like/components/CustomTweet.dart';
 import 'package:twitter_like/components/MyButton.dart';
+import 'package:twitter_like/components/loginForm.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,23 +20,20 @@ class HomePage extends StatelessWidget {
           backgroundColor: MyColors.primaryColor,
         ),
         body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: MyButton(
-                          label: 'New',
-                        ),
-                      ),
-                      Expanded(child: MyButton(label: 'Home')),
-                      Expanded(child: MyButton(label: 'Search')),
-                    ]),
-                CustomTweet()
-              ],
-            ),
+          child: Column(
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                Expanded(
+                  child: MyButton(
+                    icon: Icon(Icons.edit),
+                  ),
+                ),
+                Expanded(child: MyButton(icon: Icon(Icons.home))),
+                Expanded(child: MyButton(icon: Icon(Icons.search))),
+              ]),
+              CustomTweet(),
+              LoginForm()
+            ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
