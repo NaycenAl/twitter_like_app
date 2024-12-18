@@ -107,7 +107,12 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: () {
                   if (formKey.currentState!.validate() ?? false) {
                     formKey.currentState!.save();
-                    print(_email);
+
+                    var snackBar = SnackBar(
+                      content: Text('Loged in!'),
+                      backgroundColor: Colors.green,
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }
                 },
                 child: Text("Login"))
