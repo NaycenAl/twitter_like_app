@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_like/MyColors.dart';
+import 'package:twitter_like/models/tweet.dart';
+import 'package:intl/intl.dart';
 
 class CustomTweet extends StatefulWidget {
-  const CustomTweet({super.key});
+  Tweet tweet;
+  CustomTweet({super.key, required this.tweet});
 
   @override
   State<CustomTweet> createState() => _CustomTweetState();
@@ -11,6 +14,9 @@ class CustomTweet extends StatefulWidget {
 class _CustomTweetState extends State<CustomTweet> {
   @override
   Widget build(BuildContext context) {
+    int? datebrut = widget.tweet.created_date;
+    DateTime datetime = DateTime.fromMillisecondsSinceEpoch(datebrut! * 1000);
+    String date = DateFormat('dd/MM/yyyy HH:mm').format(datetime);
     return Card(
       elevation: 4.0,
       shape: RoundedRectangleBorder(
@@ -27,34 +33,27 @@ class _CustomTweetState extends State<CustomTweet> {
               children: [
                 CircleAvatar(
                   radius: 20,
-                  backgroundImage: AssetImage(
-                    'assets/images/yoda.jpg',
+                  backgroundImage: NetworkImage(
+                    widget.tweet!.profile ?? '',
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'John Doe',
+                      widget.tweet!.author ?? 'John Doe',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '1h ago',
+                      date.toString(),
                       style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(
-              width: 250,
-              height: 150,
-              child: Image.asset(
-                'assets/images/yoda.jpg',
-              ),
-            ),
             Text(
-              'Voici un tweet génial ! Il y a beaucoup de choses intéressantes dans ce tweet...',
+              widget.tweet!.message ?? '',
               style: TextStyle(fontSize: 16),
             ),
             Column(
